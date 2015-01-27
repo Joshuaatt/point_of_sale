@@ -1,0 +1,18 @@
+<h1>Point of Sale</h1>
+
+<p> here all all of your products:</p>
+<ul>
+  <% @products.each do |product| %>
+    <li> <%= product.name() %>, $<%= product.cost %> <a href="/products/<%= product.id() %>/edit">Update the name</a></li>
+  <% end %>
+</ul>
+<p>Create a new product:</p>
+<form action="/products" method="post" class="form-entry">
+  <label for="name"></label>
+  <input id="name" name="name" type="text" placeholder="Product's Name">
+
+  <label for="cost"></label>
+  <input id ="cost" name="cost" type="cost" placeholder="2.50">
+
+  <button type="submit">Add Product</button>
+</form>
