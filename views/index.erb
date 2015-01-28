@@ -1,12 +1,8 @@
 <h1>Point of Sale</h1>
 
-<p> here all all of your products:</p>
-<ul>
-  <% @products.each do |product| %>
-    <li> <%= product.name() %>, $<%= product.cost %> <a href="/products/<%= product.id() %>/edit">Update the name</a></li>
-  <% end %>
-</ul>
+
 <p>Create a new product:</p>
+
 <form action="/products" method="post" class="form-entry">
   <label for="name"></label>
   <input id="name" name="name" type="text" placeholder="Product's Name">
@@ -15,4 +11,21 @@
   <input id ="cost" name="cost" type="cost" placeholder="2.50">
 
   <button type="submit">Add Product</button>
+</form>
+
+
+<form action="/purchase" method="post" class="form-entry">
+  <p> here all all of your products, select to create new purchase:</p>
+  <ul>
+    <% @products.each do |product| %>
+
+      <li>
+        <input type="checkbox" name="product_ids" value="<% product.id() %>">
+        <%= product.name() %>, $<%= product.cost %> <a href="/products/<%= product.id() %>">Update the name</a>
+      </li>
+
+    <% end %>
+  </ul>
+
+  <button type="submit">New purchase</button>
 </form>

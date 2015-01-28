@@ -1,0 +1,11 @@
+<h3>Purchase</h3>
+
+<hr>
+
+
+<h3> Product List:</h3>
+<ol>
+  <% @purchases.product_id().each() do |product| %>
+    <li> <%= product.name() %> </li>
+  <% end %>
+</ol>
